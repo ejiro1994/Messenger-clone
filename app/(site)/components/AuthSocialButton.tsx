@@ -8,12 +8,11 @@ type AuthSocialButtonProps = {
 const AuthSocialButton: React.FC<AuthSocialButtonProps> = ({
   icon: Icon,
   onClick,
-}) => {
-  return (
-    <button
-      type='button'
-      onClick={onClick}
-      className='
+}) => (
+  <button
+    type='button'
+    onClick={onClick}
+    className='
       inline-flex
       w-full
       justify-center
@@ -29,10 +28,9 @@ const AuthSocialButton: React.FC<AuthSocialButtonProps> = ({
       hover:bg-gray-50
       focus:outline-offset-0
     '
-    >
-      <Icon />
-    </button>
-  )
-}
+  >
+    <Icon />
+  </button>
+)
 
 export default AuthSocialButton
