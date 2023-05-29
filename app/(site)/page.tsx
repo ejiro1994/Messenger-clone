@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import AuthForm from './components/AuthForm'
 
 export default function Home() {
   return (
@@ -20,7 +21,7 @@ export default function Home() {
             height='48'
             width='48'
             className='mx-auto w-auto'
-            src='/images/messenger.webp'
+            src='/images/messenger-logo.png'
           />
           <h2
             className='
@@ -35,7 +36,7 @@ export default function Home() {
             Sign into your account
           </h2>
         </div>
-        {/* TODO Authform */}
+        <AuthForm />
       </div>
     </div>
   )
