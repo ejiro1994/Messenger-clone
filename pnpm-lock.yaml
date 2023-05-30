@@ -26,6 +26,7 @@ specifiers:
   eslint-plugin-react-hooks: ^4.6.0
   next: 13.4.3
   next-auth: ^4.22.1
+  next-superjson-plugin: ^0.5.8
   postcss: 8.4.23
   prisma: ^4.14.1
   react: 18.2.0
@@ -53,6 +54,7 @@ dependencies:
   eslint-config-next: 13.4.4_opaykosi7ysrbskpnffskmbrki
   next: 13.4.3_biqbaboplfbrettd7655fr4n2y
   next-auth: 4.22.1_o6dt4yn4syzkhlixdxt4y57rzi
+  next-superjson-plugin: 0.5.8_next@13.4.3
   postcss: 8.4.23
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -1813,6 +1815,12 @@ packages:
     dependencies:
       function-bind: 1.1.1
 
+  /hoist-non-react-statics/3.3.2:
+    resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
+    dependencies:
+      react-is: 16.13.1
+    dev: false
+
   /https-proxy-agent/5.0.1:
     resolution: {integrity: sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==}
     engines: {node: '>= 6'}
@@ -2258,6 +2266,16 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       uuid: 8.3.2
+    dev: false
+
+  /next-superjson-plugin/0.5.8_next@13.4.3:
+    resolution: {integrity: sha512-a6znMUzHWRAaxmQNHkgANJORdI0gjSC0JvsxRRKba6vb4BJRs/i2KpwEg/s91JYDhHsnZS+tkeb3MDCJWXJY4w==}
+    peerDependencies:
+      next: ^13
+      superjson: ^1
+    dependencies:
+      hoist-non-react-statics: 3.3.2
+      next: 13.4.3_biqbaboplfbrettd7655fr4n2y
     dev: false
 
   /next/13.4.3_biqbaboplfbrettd7655fr4n2y:
