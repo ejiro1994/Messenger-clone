@@ -8,17 +8,14 @@ import DesktopItem from './DesktopItem'
 
 interface DesktopSidebarProps {
   currentUser: User
-
 }
 
-const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
-  currentUser
-}) => {
+const DesktopSidebar: React.FC<DesktopSidebarProps> = ({ currentUser }) => {
   const routes = useRoutes()
   const [isOpen, setIsOpen] = useState(false)
 
-  console.log({currentUser});
-  
+  console.log({ currentUser })
+
   return (
     <div
       className='
@@ -67,7 +64,7 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
           ))}
         </ul>
       </nav>
-      <nav 
+      <nav
         className='
          mt-4
          flex
@@ -76,9 +73,10 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
          items-center
       '
       >
-        <div onClick={() => {
-          setIsOpen(true)
-        }} 
+        <div
+          onClick={() => {
+            setIsOpen(true)
+          }}
           className='
            cursor-pointer
            hover:opacity-75
