@@ -38,6 +38,8 @@ specifiers:
   react-hot-toast: ^2.4.1
   react-icons: ^4.8.0
   react-select: ^5.7.3
+  react-spinners: ^0.13.8
+  superjson: ^1
   tailwindcss: 3.3.2
   typescript: 5.0.4
 
@@ -61,7 +63,7 @@ dependencies:
   next: 13.4.3_biqbaboplfbrettd7655fr4n2y
   next-auth: 4.22.1_o6dt4yn4syzkhlixdxt4y57rzi
   next-cloudinary: 4.12.0_next@13.4.3+react@18.2.0
-  next-superjson-plugin: 0.5.8_next@13.4.3
+  next-superjson-plugin: 0.5.8_ovgumwd3zbyd7gvuafkrruued4
   postcss: 8.4.23
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -69,6 +71,8 @@ dependencies:
   react-hot-toast: 2.4.1_s7mghcr6idhb4d5ook54gl4n44
   react-icons: 4.8.0_react@18.2.0
   react-select: 5.7.3_psemcf34ovg2dno52nagbe3daa
+  react-spinners: 0.13.8_biqbaboplfbrettd7655fr4n2y
+  superjson: 1.12.3
   tailwindcss: 3.3.2
   typescript: 5.0.4
 
@@ -1111,6 +1115,13 @@ packages:
   /cookie/0.5.0:
     resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
     engines: {node: '>= 0.6'}
+    dev: false
+
+  /copy-anything/3.0.5:
+    resolution: {integrity: sha512-yCEafptTtb4bk7GLEQoM8KVJpxAfdBJYaXyzQEgQQQgYrZiDp8SJmGKlYza6CYjEDNstAdNdKA3UuoULlEbS6w==}
+    engines: {node: '>=12.13'}
+    dependencies:
+      is-what: 4.1.12
     dev: false
 
   /cosmiconfig/7.1.0:
@@ -2320,6 +2331,11 @@ packages:
       call-bind: 1.0.2
       get-intrinsic: 1.2.1
 
+  /is-what/4.1.12:
+    resolution: {integrity: sha512-w7JwFt3gIzbzpp+I//2Ov2UeTGgKM10PxJRD6yf7yGruT3415CdT8TDR6F9/mBAakZKsIaysQVVvxryctQUbnw==}
+    engines: {node: '>=12.13'}
+    dev: false
+
   /is-wsl/2.2.0:
     resolution: {integrity: sha512-fKzAra0rGJUUBwGBgNkHZuToZcn+TtXHpeCgmkMJMMYx1sQDYaCSyjJBSCa2nH1DGm7s3n1oBnohoVTBaN7Lww==}
     engines: {node: '>=8'}
@@ -2571,7 +2587,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /next-superjson-plugin/0.5.8_next@13.4.3:
+  /next-superjson-plugin/0.5.8_ovgumwd3zbyd7gvuafkrruued4:
     resolution: {integrity: sha512-a6znMUzHWRAaxmQNHkgANJORdI0gjSC0JvsxRRKba6vb4BJRs/i2KpwEg/s91JYDhHsnZS+tkeb3MDCJWXJY4w==}
     peerDependencies:
       next: ^13
@@ -2579,6 +2595,7 @@ packages:
     dependencies:
       hoist-non-react-statics: 3.3.2
       next: 13.4.3_biqbaboplfbrettd7655fr4n2y
+      superjson: 1.12.3
     dev: false
 
   /next/13.4.3_biqbaboplfbrettd7655fr4n2y:
@@ -3073,6 +3090,16 @@ packages:
       - '@types/react'
     dev: false
 
+  /react-spinners/0.13.8_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-3e+k56lUkPj0vb5NDXPVFAOkPC//XyhKPJjvcGjyMNPWsBKpplfeyialP74G7H7+It7KzhtET+MvGqbKgAqpZA==}
+    peerDependencies:
+      react: ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
   /react-transition-group/4.4.5_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==}
     peerDependencies:
@@ -3358,6 +3385,13 @@ packages:
       mz: 2.7.0
       pirates: 4.0.5
       ts-interface-checker: 0.1.13
+    dev: false
+
+  /superjson/1.12.3:
+    resolution: {integrity: sha512-0j+U70KUtP8+roVPbwfqkyQI7lBt7ETnuA7KXbTDX3mCKiD/4fXs2ldKSMdt0MCfpTwiMxo20yFU3vu6ewETpQ==}
+    engines: {node: '>=10'}
+    dependencies:
+      copy-anything: 3.0.5
     dev: false
 
   /supports-color/5.5.0:
