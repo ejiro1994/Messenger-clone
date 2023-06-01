@@ -9,6 +9,7 @@ import { IoClose, IoTrash } from 'react-icons/io5'
 import Avatar from '@/app/components/Avatar'
 import Modal from '@/app/components/Modal'
 import ConfirmModal from '../../components/ConfirmModal'
+import AvatarGroup from '@/app/components/AvatarGroup'
 
 type ProfileDrawerProps = {
   isOpen: boolean
@@ -25,7 +26,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
 }) => {
   const otherUser = useOtherUser(data)
   const [confirmOpen, setConfirmOpen] = useState(false)
-  
+
   const joinedDate = useMemo(() => {
     return format(new Date(otherUser.createdAt), 'PP')
   }, [otherUser.createdAt])
@@ -43,10 +44,13 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
 
   return (
     <>
-    <ConfirmModal isOpen={confirmOpen} onClose={() => {
-      setConfirmOpen(false)
-    }}/>
-       
+      <ConfirmModal
+        isOpen={confirmOpen}
+        onClose={() => {
+          setConfirmOpen(false)
+        }}
+      />
+
       <Transition.Root show={isOpen} as={Fragment}>
         <Dialog as='div' className='realtive z-100' onClose={onClose}>
           <Transition.Child
@@ -169,7 +173,11 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                       >
                         <div className='flex flex-col items-center'>
                           <div className='mb-2'>
-                            <Avatar user={otherUser} />
+                            {data.isGroup ? (
+                              <AvatarGroup users={data.users} />
+                            ) : (
+                              <Avatar user={otherUser} />
+                            )}
                           </div>
                           <div>{title}</div>
                           <div className='text-sm text-gray-500'>
@@ -177,7 +185,9 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                           </div>
                           <div className='flex gap-10 my-8'>
                             <div
-                              onClick={() => {setConfirmOpen(true)}}
+                              onClick={() => {
+                                setConfirmOpen(true)
+                              }}
                               className='
                                                flex flex-col gap-3 items-center cursor-pointer hover:opacity-75
                                             '
@@ -250,6 +260,29 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                 </dd>
                               </div>
                             )}{' '}
+                            {data.isGroup && (
+                              <div>
+                                <dt 
+                                  className='
+                                   text-sm
+                                   font-medium
+                                   text-gray-500
+                                   sm:w-40
+                                   sm:flex-shrink-0
+                                '
+                                >Emails</dt>
+                                <dd 
+                                  className='
+                                   mt-1
+                                   text-sm
+                                   text-gray-900
+                                   sm:col-span-2
+                                '
+                                >
+                                  {data.users.map((user) => user.email).join(', ')}
+                                </dd>
+                              </div>
+                            )}
                             {!data.isGroup && (
                               <>
                                 <hr />

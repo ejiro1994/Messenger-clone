@@ -1,6 +1,7 @@
 'use client'
 
 import Avatar from '@/app/components/Avatar'
+import AvatarGroup from '@/app/components/AvatarGroup'
 import useOtherUser from '@/app/hooks/useOtherUser'
 import { Conversation, User } from '@prisma/client'
 import Link from 'next/link'
@@ -63,7 +64,11 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
           >
             <HiChevronLeft size={32} />
           </Link>
-          <Avatar user={otherUser} />
+          {conversation.isGroup ? (
+            <AvatarGroup users={conversation.users} />
+          ) : (
+            <Avatar user={otherUser} />
+          )}
           <div className='flex flex-col'>
             <div>{conversation.name || otherUser.name}</div>
             <div
@@ -79,7 +84,9 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
         </div>
         <HiEllipsisHorizontal
           size={32}
-          onClick={() => {setDrawerOpen(true)}}
+          onClick={() => {
+            setDrawerOpen(true)
+          }}
           className='
                text-sky-500
                cursor-pointer
