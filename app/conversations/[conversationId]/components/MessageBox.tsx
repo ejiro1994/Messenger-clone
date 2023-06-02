@@ -8,6 +8,7 @@ import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 import { useState } from 'react'
 import ImageModal from './ImageModal'
+import { AnimatePresence, motion } from 'framer-motion'
 
 type MessageBoxProps = {
   data: FullMessageType
@@ -36,7 +37,14 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
     data.image ? 'rounded-md p-0' : 'rounded-full py-2 px-3'
   )
   return (
-    <div className={container}>
+    <motion.div
+      layout
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{opacity: {duration: .2 }, layout: {duration:   0.05}} }
+      style={{ originX: isOwn ? 1 : 0 }}
+      className={container}
+    >
       <div className={avatar}>
         <Avatar user={data.sender} />
       </div>
@@ -47,15 +55,15 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
             {format(new Date(data.createdAt), 'p')}
           </div>
         </div>
-        <div className={message}>
-          <ImageModal 
+        <motion.div className={message}>
+          <ImageModal
             src={data.image}
             isOpen={imageModalOpen}
-            onClose={()=> setImageModalOpen(false)}
+            onClose={() => setImageModalOpen(false)}
           />
           {data.image ? (
             <Image
-              onClick={ () => setImageModalOpen(true)}
+              onClick={() => setImageModalOpen(true)}
               alt='Image'
               height={288}
               width={288}
@@ -71,7 +79,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
           ) : (
             <div>{data.body}</div>
           )}
-        </div>
+        </motion.div>
         {isLast && isOwn && seenList.length > 0 && (
           <div
             className='
@@ -82,7 +90,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
           >{`Seen by ${seenList}`}</div>
         )}
       </div>
-    </div>
+    </motion.div>
   )
 }
 
